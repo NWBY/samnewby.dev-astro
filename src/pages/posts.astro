@@ -1,0 +1,19 @@
+---
+import Base from "@/layouts/Base";
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
+const title = "Blog - Sam Newby";
+---
+
+<Base title={title}>
+  <h3 slot="page-intro-title">Blog</h3>
+  {
+    allPosts.map((post) => (
+      <div class="my-4">
+        <p class="text-xl font-bold mb-4">
+          <a href={post.url}>{post.frontmatter.title}</a>
+        </p>
+        <p>{post.frontmatter.pubDate}</p>
+      </div>
+    ))
+  }
+</Base>
