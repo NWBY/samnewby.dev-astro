@@ -1,11 +1,27 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+const trimmed = currentPath.replace(/^\/+/, '');
 ---
 
-<nav class="flex items-center py-5">
-  <h1 class="mr-auto font-bold text-2xl">Sam Newby</h1>
+<nav class="flex items-center py-5 md:pt-20 lg:pt-32 border-b-4 border-purple-100">
+  <h1 class="mr-auto font-bold text-2xl"><a href="/">Sam Newby</a></h1>
   <div class="flex items-center space-x-8">
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/posts/">Blog</a>
+    <a href="/about" class={trimmed === "about" ? "active" : "nav-item"}
+      >About</a
+    >
+    <a href="/posts" class={trimmed === "posts" ? "active" : "nav-item"}
+      >Blog</a
+    >
   </div>
 </nav>
+
+<style>
+  .nav-item {
+    @apply text-gray-500 font-light;
+  }
+
+  .active {
+    @apply text-purple-500 font-medium;
+  }
+</style>

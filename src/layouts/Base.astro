@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import siteConfig from "@/site-config";
+import '../styles/base.css';
 const { title, description = siteConfig.description, image } = Astro.props;
 ---
 
@@ -16,7 +17,7 @@ const { title, description = siteConfig.description, image } = Astro.props;
   </head>
   <body class="px-5 md:w-1/2 md:px-0 mx-auto">
     <Header />
-    <div>
+    <div class="py-5">
         <slot name="page-intro-title" />
         <slot name="page-intro-copy" />
     </div>
