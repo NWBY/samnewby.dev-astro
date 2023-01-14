@@ -1,0 +1,8 @@
+---
+const { title, url, date } = Astro.props;
+---
+
+<div class="mb-8">
+    <a href={url} class="text-xl font-semibold inline-block hover:underline mb-2">{title}</a>
+    <p class="font-light text-gray-600">{date}</p>
+</div>

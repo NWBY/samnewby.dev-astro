@@ -1,3 +1,7 @@
 .page-title {
     @apply font-semibold text-gray-900 text-xl;
 }
+
+a {
+    @apply text-purple-500;
+}
