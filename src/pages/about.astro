@@ -18,3 +18,13 @@ const title = "About me - Sam Newby";
     > under the name Enteka Software.
   </p>
 </Base>
+
+<script>
+import { pushEvent } from 'enalog'
+
+pushEvent(`${import.meta.env.PUBLIC_ENALOG_API_TOKEN}`, {
+    project: 'samnewby-dev',
+    name: 'viewed-about-page',
+    push: false
+})
+</script>

@@ -17,6 +17,7 @@
     "@types/alpinejs": "^3.7.1",
     "alpinejs": "^3.10.5",
     "astro": "^1.9.0",
+    "enalog": "^1.0.3",
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
