@@ -1,0 +1,57 @@
+---
+layout: ../../layouts/Post.astro
+title: "Why we're building EnaLog"
+pubDate: "12 Mar 2023"
+description: "Short introduction to why my cofounder Joe and I are building EnaLog"
+author: "Sam Newby"
+image:
+url: "https://astro.build/assets/blog/astro-1-release-update/cover.jpeg"
+alt: "The Astro logo with the word One."
+tags: ["enalog", "building", "saas"]
+---
+
+At the beginning of March, we (Joe and I) launched our first SaaS product: [EnaLog](https://enalog.app). I want to address why we're
+building EnaLog and what problem it solves.
+
+### What is EnaLog?
+
+It's probably a good idea to start by understanding what EnaLog actually is. It's a simple yet powerful event tracking tool for 
+products, SaaS, and business. If you're not sure what event tracking is take a look at 
+[this post](https://enalog.app/blog/why-your-saas-needs-event-tracking/) on our blog. But we have big plans to make EnaLog into a
+complete analytics tool with feature flags, A/B testing and lot's of other features.
+
+### Why are we building it?
+
+Joe and I are both Software Engineers, we used to work at the same company and now work at different companies but in our experience
+we have seen that businesses struggle to know what is actually happening within their product and business. This is due to most modern
+companies using a variety of tools and systems, they also don't know what is happening within their product and what their users are
+doing when using their product.
+
+So the question we have both asked ourselves a lot of the time when being tasked with building a new feature or implementing a new
+piece of tech is why are we doing this? What data has been used to support this decision? Unfortunately, the answer a lot of the time
+isn't supported by data. How can an engineering team build a new feature if we don't even know if our users want it?
+
+We have built EnaLog to solve this exact problem. EnaLog allows it's users to track anything and everything in their product and
+business so that they can make data driven decisions on what to do next.
+
+Let's look at an example. Your product designer has redesigned your product's onboarding flow to match the product's new branding 
+and the engineering team is now been tasked with implementing the  new design. The previous design had 3 steps in the onboarding
+process after signup:
+
+* User creates team
+* User invites team members to the team
+* User completes onboarding by entering their credit card details
+
+Step 1 and step 3 are compulsory but step 2 is optional as your users can always invite their team members at a later 
+stage so there is a button to skip step 2. With event tracking from EnaLog your designer has noticed that 95% of new users skip the
+second step to invite team members so they decide to remove it in the new onboarding designs which makes the flow simpler and easier
+for the engineering team to implement.
+
+Without event tracking powered by EnaLog your engineering team would have implemented the new design with step 2 which is rarely used, 
+wasting valuable engineering time and would have made the onboarding flow more complex for no reason.
+
+### Wrapping up
+
+I think that covers why we're building EnaLog pretty well so that's it for this post. If you would like to give EnaLog a try it's free
+to [sign up](https://dash.enalog.app/signup) and no credit card required. And if you have any questions or feedback I'd love to hear 
+them so please email me at sam@enalog.app
