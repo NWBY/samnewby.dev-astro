@@ -1,0 +1,64 @@
+---
+layout: ../../layouts/Post.astro
+title: "Introducing EnaUpload"
+pubDate: "3 May 2023"
+description: "We're close to launching our second project: EnaUpload at Enteka Software. I'm going to introduce what it is and why we're building it."
+author: "Sam Newby"
+image:
+url: "https://astro.build/assets/blog/astro-1-release-update/cover.jpeg"
+alt: "The Astro logo with the word One."
+tags: ["enteka", "business", "enaupload", "python"]
+---
+
+We started this year with the aim of shipping at least three pieces of software. We've already launched [EnaLog](https://enalog.app) which helps
+businesses track their user activity in their applications. EnaLog is a moderate success I would say, MRR still sits at 0 but we have 2 years
+runway to cover hosting costs, we have users using it and reaching the free tier limits. All we need to do is upsell them and improve our marketing
+game. Easier said than done. The key thing is we've learnt a lot. We spent too much time perfecting small parts of EnaLog, we didn't focus on
+marketing, and most importantly we didn't have any sort of online prescence. With EnaUpload we're doing the opposite of all these things.
+
+### EnaUpload
+
+[EnaUpload](https://enaupload.com) is aiming to refresh the file upload experience for developers and no-code users. We want to make it easy for you to add file upload
+functionality into your applications without having to worry about storage, memory limits, security or serving those files.
+
+#### The problem
+
+Uploading files in a web application has a number of issues.
+
+1. Files should never hit the server - if you upload your files from the client to your server that file starts taking up disk space or memory 
+on your server whilst you process it. If you're not quite aware of how this is an issue, then just take my word it is. As a general rule of 
+thumb you don't want files going through your server as every single one that does has a risk of bringing it down to it's knees.
+
+2. Backups - the moment you store files on your server, you will need to back them up. How do you do that? Honestly there is so many choices
+it becomes a nightmare to choose.
+
+3. Security - you've decided that storing images in the cloud is the best option, most providers call these 'buckets'. But how do you secure your
+bucket? If you don't secure it properly any could access it and start adding their own files, or deleting your files, or modifying them. So now
+you need to learn about cloud security. Another headache.
+
+#### The solution
+
+EnaUpload is the solution. We've spent the time learning about cloud security, buckets, infrastructure, etc so that you don't have to. We've also
+built EnaUpload as an easy solution to allow you to upload files directly from your application without hitting your server. You will also
+instantly get a URL to access your upload which is cached and globally available.
+
+EnaUpload solves a problem for us and we believe it can solve a problem for developers and businesses.
+
+### The Tech Stack
+
+If you're interested here is the tech we used to build EnaUpload:
+
+**Backend**
+* Python
+* FastAPI
+
+**Frontend**
+* JavaScript
+* Vue.js
+* Vite
+* TailwindCSS
+
+**Other Stuff**
+* Postgres for database
+* Supertokens for Auth
+* Probably a bunch of other tech I forgot
