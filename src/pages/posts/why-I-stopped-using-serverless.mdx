@@ -1,0 +1,38 @@
+---
+layout: ../../layouts/Post.astro
+title: "Why I Stopped using Serverless"
+pubDate: "15 May 2023"
+description: "I've been using Serverless architecture for a number of years and in the past month I've decided to stop using it and return to containerised applications for my side projects."
+author: "Sam Newby"
+image:
+url: "https://astro.build/assets/blog/astro-1-release-update/cover.jpeg"
+alt: "The Astro logo with the word One."
+tags: ["serverless", "containers", "lambda"]
+---
+
+If you follow me on Twitter or know me in person, you will know I love Serverless architecture. Not the serverless framework but serverless
+architecture deployed to AWS Lambda. Over the past few years I've been building multiple successful and unsuccessful side projects using
+with serverless and I've always ignored the headaches as I told myself that the upside of "pay for what you use" and autoscaling was worth
+dealing with the downsides.
+
+### I've had enough
+
+EnaLog is built completely with serverless and deployed using AWS SAM, don't get me wrong SAM takes away a lot of the headaches with serverless
+and makes deployment a breeze. But, there are a number of things that I don't want to keep battling:
+1. Cold starts - I can battle these with AWS EventBridge rules to keep a container warm to reduce cold starts but this just means more
+infrastructure to handle, manage and setup.
+2. Warm starts - even with warm starts the responses were still slower than what I could get from a FastAPI app hosted in a container on
+AWS. Warm starts on EnaLog are anywhere between 80-400ms, whereas a response for EnaUpload which is FastAPI hosted in a container is
+consistently less than 50ms.
+3. DX - the developer experience is subpar at best. Since the AWS SAM CLI runs a Flask app which then runs each function in the a Docker
+container it doesn't perform very well. We commonly saw 8s+ response times when working locally. CORS also just doesn't work properly
+and you have to run a botched local version of CORS functions to get it to work.
+
+### Introducing Containers
+
+Yes, they are not new and yes I've used them before. I decided to build new projects with FastAPI and deploy them in containers. And even
+with 0.5vCPU and 1GB of RAM they consistently outperform the serverless projects.
+
+Deploying in a containerised environment to AWS doesn't solve everything, there is still some headaches around CI/CD which I have to
+configure myself now. I can't just run `sam deploy` anymore, but this isn't a big deal and for the better DX it's a tradeoff I'm willing
+to make.
