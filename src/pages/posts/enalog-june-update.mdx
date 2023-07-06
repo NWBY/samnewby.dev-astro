@@ -1,0 +1,69 @@
+---
+layout: ../../layouts/Post.astro
+title: "EnaLog June Update"
+pubDate: "4 Jul 2023"
+description: "This is the first of hopefully many EnaLog monthly updates. I'll share what Joe and I have been working on at EnaLog and what's in the pipeline."
+author: "Sam Newby"
+image:
+url: "https://astro.build/assets/blog/astro-1-release-update/cover.jpeg"
+alt: "The Astro logo with the word One."
+tags: ["enteka", "business", "enalog", "python", "monthly-update"]
+---
+
+I've never written one of these before so please bear with me if it's a bit rough around the edges. I'm hoping I'll get around to writing one of these every
+month, but only time will tell whether that will actually happen. So I'm going to talk about **what** we have done and **why** we did it, and then finally
+share and insight into what we're planning to do in the next 1-3 months. Some of these things may have been shipped in May but I'll throw them in here to 
+bring some more visibility. So here is what we've actually done:
+
+### Feature Flags
+
+Our headline for June was the arrival of Feature Flags. If you're not sure what feature flags are then we've posted a number of articles on what they are
+and their benefits over on the [EnaLog Blog](https://enalog.app/blog).
+
+In short, we've wanted to add feature flags functionality to EnaLog ever since we started working on it. It's been in the backlog since day 1, and finally
+six months later it's here. It allows EnaLog users to rollout a specific feature to a percentage of users in their applications. We've tried to make the
+setup as easy as possible but we think there is even more room for improvement down the line but here is a quick guide on how they work.
+1. EnaLog user creates a new flag in the dashboard and selects the percentage of users to show the feature to
+2. Using one of the EnaLog SDKs our users then check if their user should be shown the feature or not using `checkFeature` function (`check_feature` for Python)
+3. The `checkFeature` function will return true if the user should be shown the feature or false if they shouldn't
+
+Here is a code example of the above in Python:
+```python
+from enalog import EnaLog
+
+enalog_client = EnaLog(api_token=<insert_api_token>)
+is_feature_enabled = enalog_client.check_feature(feature='test-feature', user_id=<your_internal_user_id>)
+
+if is_feature_enabled:
+    """Show user shiny new feature"""
+```
+
+Since we shipped feature flags we've added the ability to easily pause a flag and reset the metrics. And we plan to ship more features and improvements in the coming months.
+
+### Funnels
+
+EnaLog already has the capability to chart metrics in the format of a counter, line or bar charts but in June we also added Funnel graphs which allow users to chart
+metrics across a user funnel or flow. This is a pretty large advancement for us as it our first really analytical chart which we plan to expand so much more with.
+
+### First Community Built SDK
+
+This one came right at the end of June and crossed over into the beginning of July but we had V1 of our first community built SDK which is [EnaLog Swift](https://github.com/thebarbican19/EnalogSwift) by
+[Joe Barbour](https://twitter.com/mistermeenr).
+
+Joe is a user of EnaLog and reached out to myself on Twitter asking about a SDK for Swift and whether we wanted to incorporate it into EnaLog, which of course we did! Joe wrote some great code and great documentation
+for the SDK and in return we offered him a discount for his hard work which he uses to track events in his product [SprintDock](https://sprintdock.app/). We're super happy to have our first community built SDK and hope
+to see more from our amazing community!
+
+### What's Next?
+
+The next three months are going to see EnaLog continue to evolve massively. Here is three things we're planning to work on.
+
+1. We're going to ship a new version of our documentation which will bring the content into our landing page repository and allow us to keep it on brand
+2. We're planning to produce at least two new SDKs for PHP and Rust
+3. We want to build a proof of concept for A/B testing in EnaLog. A really popular feature for product analytics and an even more useful tool for software teams which we feel we can create a great user experience for.
+
+We do have more on the way but for the moment they're top secret!
+
+### Wrapping up
+
+June was a great month, we shipped great features, learned a lot and grew as a business. See you back here for the July update!
